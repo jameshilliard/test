@@ -20,7 +20,9 @@ void riscv_int_init(void)
   for(i=0; i<RISCV_INT_NUM; i++)
     g_pfnInt_handle[i] = 0;
 
-  set_csr(mie, 0);
+  write_csr(mie, 0);
+  write_csr(medeleg, 0);
+  write_csr(mideleg, 0);
   set_csr(mstatus, MSTATUS_MIE);
 }
 

@@ -208,8 +208,8 @@ exception_trap:
 1:
   j 1b
 
-.weak main
-main:
+.weak test_main
+test_main:
 1:
   j 1b
 

@@ -1,0 +1,30 @@
+#ifndef _RISCV_SPISD_H
+#define _RISCV_SPISD_H
+
+#include <stdint.h>
+
+#define SPI_REG_SCKDIV          (0x00u >> 2)
+#define SPI_REG_SCKMODE         (0x04u >> 2)
+#define SPI_REG_CSID            (0x10u >> 2)
+#define SPI_REG_CSDEF           (0x14u >> 2)
+#define SPI_REG_CSMODE          (0x18u >> 2)
+                                (    u >> 2)
+#define SPI_REG_DCSSCK          (0x28u >> 2)
+#define SPI_REG_DSCKCS          (0x2au >> 2)
+#define SPI_REG_DINTERCS        (0x2cu >> 2)
+#define SPI_REG_DINTERXFR       (0x2eu >> 2)
+                                (    u >> 2)
+#define SPI_REG_FMT             (0x40u >> 2)
+#define SPI_REG_TXFIFO          (0x48u >> 2)
+#define SPI_REG_RXFIFO          (0x4cu >> 2)
+#define SPI_REG_TXCTRL          (0x50u >> 2)
+#define SPI_REG_RXCTRL          (0x54u >> 2)
+                                (    u >> 2)
+#define SPI_REG_FCTRL           (0x60u >> 2)
+#define SPI_REG_FFMT            (0x64u >> 2)
+                                (    u >> 2)
+#define SPI_REG_IE              (0x70u >> 2)
+#define SPI_REG_IP              (0x74u >> 2)
+
+
+#endif
