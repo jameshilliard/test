@@ -6,6 +6,7 @@ static uint32_t g_u32IntFlag;
 static void _test_irqhandle(void)
 {
   g_u32IntFlag = 1;
+  riscv_uart_irqdisable();
 }
 
 /* 

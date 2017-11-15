@@ -8,8 +8,7 @@
 #include "clint.h"
 #include "riscv_uart.h"
 #include "riscv_gpio.h"
-
-
+#include "riscv_sd.h"
 
 
 

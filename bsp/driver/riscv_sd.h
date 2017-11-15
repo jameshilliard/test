@@ -32,11 +32,14 @@
 
 #define SD_BLOCK_SIZE           512u
 
-#define SPISD_WORK_CLK          10000000UL
+#define SPISD_WORK_CLK          50000000UL
 #define SD_ENUM_CLK             (300 * 1000ul)
 #define SD_RW_CLK               (5 * 1000ul * 1000ul)
 
 
+void riscv_spisd_init(void);
+int riscv_sd_enumerate(void);
+int riscv_sd_read(uint32_t u32StartBlk, uint8_t *pu8Ptr, uint32_t u32BlockCnt);
 
 
 #endif
