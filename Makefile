@@ -14,7 +14,6 @@ src_dir      := .
 inc_dir      := .
 c_srcs       :=
 asm_srcs     :=
-ld_script    := "linker.lds"
 LIBS         :=
 
 include util/util.mk
@@ -41,6 +40,7 @@ OBJCOPY       := riscv64-unknown-elf-objcopy
 OBJDUMP       := riscv64-unknown-elf-objdump
 AR            := riscv64-unknown-elf-ar
 RANLIB        := riscv64-unknown-elf-ranlib
+SZ            := riscv64-unknown-elf-size
 LD            := $(CC)
 
 RUN           := @RUN@
@@ -61,10 +61,13 @@ VPATH     = $(SRCPATHS)
 all: PRE_MAKE_ALL_RULE_HOOK $(OBJS) $(OUTFILES) POST_MAKE_ALL_RULE_HOOK
 
 PRE_MAKE_ALL_RULE_HOOK: $(BUILDDIR) $(OBJDIR) $(LSTDIR)
-	@echo start compile....
+	@echo 
+	@echo $(project_name) start compile....
 
 POST_MAKE_ALL_RULE_HOOK:
 	@echo 
+	@rm ./-MT
+	@$(SZ) $(BUILDDIR)/$(project_name).elf
 	@echo --------  Done  --------
 
 
@@ -81,11 +84,11 @@ $(LSTDIR):
 	@mkdir -p $(LSTDIR)
 
 $(ASMOBJS): $(OBJDIR)/%.o: %.S
-	@echo Compiling $<
+	@echo ASM $<
 	@$(CC) $(ASFLAGS) $< -o $@
 
 $(COBJS): $(OBJDIR)/%.o: %.c
-	@echo Compiling $<
+	@echo CC $<
 	@$(CC) $(CFLAGS) $< -o $@
 
 $(BUILDDIR)/$(project_name).elf: $(OBJS)

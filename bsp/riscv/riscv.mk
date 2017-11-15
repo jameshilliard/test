@@ -7,5 +7,7 @@ c_srcs   += $(riscv_path)interruption.c
 asm_srcs += $(riscv_path)cpu_lib.S   \
             $(riscv_path)mentry.S 
 
+ld_script    := "$(riscv_path)linker.lds"
+
 
 
